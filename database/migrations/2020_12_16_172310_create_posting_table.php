@@ -21,6 +21,7 @@ class CreatePostingTable extends Migration
             $table->enum('kondisi', ['baru', 'bekas']);
             $table->string('lokasi');
             $table->enum('kategori', ['kendaraan', 'elektronik', 'kuliner', 'fashion']);
+            $table->string('photo');
             $table->timestamps();
         });
     }

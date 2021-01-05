@@ -14,7 +14,7 @@ class Posting extends Model
      * @var array
      */
     protected $fillable = [
-        'nama', 'harga', 'deskripsi', 'kondisi', 'lokasi', 'kategori'
+        'nama', 'harga', 'deskripsi', 'kondisi', 'lokasi', 'kategori', 'photo'
     ];
 
 }
