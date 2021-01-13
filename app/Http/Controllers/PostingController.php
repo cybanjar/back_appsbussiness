@@ -29,14 +29,29 @@ class PostingController extends Controller
             'deskripsi' => 'required|string',
             'kondisi' => 'in:baru,bekas',
             'lokasi' => 'required|string',
-            'kategori' => 'required|in:kendaraan,elektronik,kuliner,fashion'
+            'kategori' => 'required|in:kendaraan,elektronik,kuliner,fashion',
+            'photo' => 'required|image',
            ]
         );
+
+        $photo = Str::random(34);
+        $request->file('photo')->move(storage_path('photo'), $photo);
 
         $data = $request->all(); // ambil semua yg ada dibody
         $posting = Posting::create($data); // yg ada di model Post
  
         return response()->json($posting);
+    }
+
+    public function get_photo($name)
+    {
+        $photo_path = storage_path('photo') . '/' . $name;if (file_exists($photo_path)) {
+        $file = file_get_contents($photo_path);
+        return response($file, 200)->header('Content-Type', 'image/jpeg');
+        }$res['success'] = false;
+        $res['message'] = "Avatar not found";
+        
+        return $res;
     }
 
     public function update(Request $request, $id) {
