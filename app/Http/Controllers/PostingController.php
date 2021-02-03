@@ -35,12 +35,18 @@ class PostingController extends Controller
         );
 
         $photo = Str::random(34);
-        $request->file('photo')->move(storage_path('photo'), $photo);
+        $request->file('photo')->move(storage_path('/app/public'), $photo);
 
-        $data = $request->all(); // ambil semua yg ada dibody
-        $posting = Posting::create($data); // yg ada di model Post
+        // ambil semua yg ada dibody
+        $data = $request->all(); 
+
+        // yg ada di model Post
+        $posting = Posting::create($data); 
  
-        return response()->json($posting);
+        return response()->json([
+            'success' => true,
+            'message' => 'Successfully!'
+        ]);
     }
 
     public function get_photo($name)
