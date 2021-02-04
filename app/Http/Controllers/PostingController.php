@@ -34,7 +34,7 @@ class PostingController extends Controller
            ]
         );
 
-        $photo = Str::random(34);
+        // $photo = Str::random(34);
         $request->file('photo')->move(storage_path('/storage/app/public'), $photo);
 
         // ambil semua yg ada dibody
