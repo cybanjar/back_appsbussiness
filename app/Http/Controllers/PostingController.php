@@ -30,12 +30,12 @@ class PostingController extends Controller
             'kondisi' => 'in:baru,bekas',
             'lokasi' => 'required|string',
             'kategori' => 'required|in:kendaraan,elektronik,kuliner,fashion',
-            'photo' => 'required|image',
+            'photo' => 'string',
            ]
         );
 
         $photo = Str::random(34);
-        $request->file('photo')->move(storage_path('/app/public'), $photo);
+        $request->file('photo')->move(storage_path('/storage/app/public'), $photo);
 
         // ambil semua yg ada dibody
         $data = $request->all(); 
