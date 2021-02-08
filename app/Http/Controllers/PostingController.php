@@ -30,7 +30,7 @@ class PostingController extends Controller
             'kondisi' => 'in:baru,bekas',
             'lokasi' => 'required|string',
             'kategori' => 'required|in:kendaraan,elektronik,kuliner,fashion',
-            'photo' => 'string',
+            'photo' => 'required|image',
            ]
         );
 
