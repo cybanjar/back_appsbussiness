@@ -38,9 +38,12 @@ class PostingController extends Controller
         // $request->file('photo')->move(storage_path('/storage/app/public'), $photo);
 
         $file = $request->file('photo');
+
+        $destinationPath = storage_path('/app/image');
+
         if($request->hasFile('photo')) {
             $request->file('photo')->
-            move(storage_path('/storage/app/public'), $photo);
+            move($destinationPath, $photo);
         }
 
         // ambil semua yg ada dibody
