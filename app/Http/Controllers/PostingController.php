@@ -58,7 +58,8 @@ class PostingController extends Controller
  
         return response()->json([
             'success' => true,
-            'message' => 'Successfully!'
+            'message' => 'Successfully!',
+            'data' => $posting
         ]);
     }
 
