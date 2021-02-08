@@ -40,7 +40,7 @@ class PostingController extends Controller
         if ($request->hasFile('photo')) {
             $photo = $request->file('photo');
             $name = time(). '.'.$photo->getClientOriginalExtension(); 
-            $destinationPath = storage_path('public/storage');
+            $destinationPath = storage_path('app/public');
             $photo->move($destinationPath, $name);
         }
 
